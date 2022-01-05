@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1641416803 source:c:\users\dell\documents\snake\main.cpp
+1641419636 source:c:\users\dell\documents\snake\main.cpp
 	<SFML/Graphics.hpp>
 
 1525808418 c:\users\dell\desktop\sfml-2.5.1\include\sfml\graphics.hpp
@@ -410,4 +410,16 @@
 	<SFML/Graphics/PrimitiveType.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
+
+1641419379 source:c:\users\dell\documents\snake\segment.cpp
+
+1641419708 source:c:\users\dell\documents\snake\game.cpp
+	"game.h"
+
+1641419960 c:\users\dell\documents\snake\game.h
+	"segment.h"
+
+1641420320 c:\users\dell\documents\snake\segment.h
+	<SFML/Graphics.hpp>
+	<iostream>
 
