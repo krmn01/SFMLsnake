@@ -22,7 +22,7 @@ case 2:
     this->currentPos = sf::Vector2f(lastElem->currentPos.x, lastElem->currentPos.y);
     break;
 case 3:
-    this->currentPos = sf::Vector2f(lastElem->currentPos.x, lastElem->currentPos.y);
+    this->currentPos = sf::Vector2f(lastElem->currentPos.x-segmentSize, lastElem->currentPos.y);
     break;
 }
 //this->currentPos = nextElement->oldPos;
