@@ -1,9 +1,9 @@
-#include <SFML/Graphics.hpp>
+#include "game.h"
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Unnamed car game");
-    window.setFramerateLimit(30);
+    Game g;
+    g.start();
     return 0;
 }
