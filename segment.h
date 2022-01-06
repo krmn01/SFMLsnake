@@ -13,6 +13,8 @@ class Segment
      virtual void update(float snakeSpeed)=0;
      virtual void draw(sf::RenderWindow &win)=0;
      virtual void changeDirection()=0;
+     virtual void checkPos()=0;
+     //virtual ~Segment(){};
 };
 
 
@@ -24,6 +26,8 @@ public:
     void update(float snakeSpeed);
     void draw(sf::RenderWindow &win);
     void changeDirection();
+    void checkPos();
+    ~TailSegment();
 };
 
 class HeadSegment :public Segment
@@ -33,4 +37,6 @@ class HeadSegment :public Segment
     void update(float snakeSpeed);
     void draw(sf::RenderWindow &win);
     void changeDirection();
+    void checkPos();
+    ~HeadSegment();
 };

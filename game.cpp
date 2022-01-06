@@ -16,26 +16,36 @@ window->close();
       snake.push_back(new TailSegment(snake.back()));
       snake.push_back(new TailSegment(snake.back()));
       snake.push_back(new TailSegment(snake.back()));
-          std::cout<<"Segmentow"<<snake.size();
        points = 0;
+       newFruit = new GoodFruit();
 }
 
 void Game::updateSnake()
 {
-    float vel = (10+points )*0.5;
+    float vel = (5+points )*0.5;
     for(Segment*s : snake)s->update(vel);
+    if(newFruit != nullptr){
+    if(newFruit->checkCollision(points,snake[0]->currentPos)==true)
+    {
+        delete newFruit;
+        newFruit = new GoodFruit();
+        snake.push_back(new TailSegment(snake.back()));
+        std::cout<<points<<std::endl;
+    }
+   }
 }
 
 void Game::drawSnake()
 {
     for(Segment*s : snake)s->draw(*window);
+    newFruit->drawFruit(*window);
 }
 
 bool Game::gameOver()
 {
-    if(snake.size()>10){
+    if(snake.size()>5){
     float distance;
-    for(int i = 10; i<snake.size(); i++)
+    for(unsigned int i = 10; i<snake.size(); i++)
     {
         distance = sqrt(pow((snake[0]->currentPos.x - snake[i]->currentPos.x),2)+pow((snake[0]->currentPos.y - snake[i]->currentPos.y),2));
         if(distance < 5)
@@ -93,4 +103,10 @@ void Game::start()
     }while (window->isOpen());
 
 
+}
+
+Game::~Game()
+{
+    for(Segment *s: snake)delete s;
+    delete window;
 }

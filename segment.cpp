@@ -9,7 +9,6 @@ piece.setFillColor(sf::Color::White);
 piece.setOrigin(sf::Vector2f(segmentSize/2,segmentSize/2));
 this->currentDirection = nextElement->oldDirection;
 this->oldDirection=currentDirection;
-std::cout<<"x:"<<currentPos.x<<" y:"<<currentPos.y<<std::endl;
 switch(currentDirection)
 {
 case 0:
@@ -39,17 +38,14 @@ switch(currentDirection)
 case 0:
     this->oldPos = currentPos;
     currentPos = sf::Vector2f(currentPos.x,nextElement->oldPos.y);
-    //this->currentPos.y+=snakeSpeed;
     break;
 case 1:
     this->oldPos = currentPos;
      currentPos = sf::Vector2f(currentPos.x,nextElement->oldPos.y);
-     // this->currentPos.y-=snakeSpeed;
     break;
 case 2:
     this->oldPos = currentPos;
      currentPos = sf::Vector2f(nextElement->oldPos.x,currentPos.y);
-      //this->currentPos.x+=snakeSpeed;
     break;
 case 3:
     this->oldPos = currentPos;
@@ -61,7 +57,7 @@ default:
 
 //this->currentPos = nextElement->oldPos;
 piece.setPosition(this->currentPos);
-
+checkPos();
 }
 
 void TailSegment::draw(sf::RenderWindow &win)
@@ -69,8 +65,21 @@ void TailSegment::draw(sf::RenderWindow &win)
 win.draw(piece);
 }
 
+void TailSegment::checkPos()
+{
+    if(currentPos.x >= 800)currentPos.x=segmentSize;
+    else if(currentPos.x <= 0)currentPos.x=800-segmentSize;
+    else if(currentPos.y <= 0)currentPos.y=600-segmentSize;
+    else if(currentPos.y >= 600)currentPos.y=segmentSize;
+}
+
 void TailSegment::changeDirection()
 {
+}
+
+TailSegment::~TailSegment()
+{
+    delete nextElement;
 }
 
 HeadSegment::HeadSegment()
@@ -110,6 +119,7 @@ default:
     break;
 }
 piece.setPosition(currentPos);
+checkPos();
 }
 
 void HeadSegment::draw(sf::RenderWindow &win)
@@ -136,4 +146,17 @@ else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&&currentDirection!=1)
 {
     this->currentDirection=0;
 }
+}
+
+HeadSegment::~HeadSegment()
+{
+
+}
+
+void HeadSegment::checkPos()
+{
+    if(currentPos.x >= 800)currentPos.x=segmentSize;
+    else if(currentPos.x <= 0)currentPos.x=800-segmentSize;
+    else if(currentPos.y <= 0)currentPos.y=600-segmentSize;
+    else if(currentPos.y >= 600)currentPos.y=segmentSize;
 }
