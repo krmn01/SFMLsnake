@@ -414,10 +414,11 @@
 1641498246 source:c:\users\dell\documents\snake\segment.cpp
 	"segment.h"
 
-1641497930 source:c:\users\dell\documents\snake\game.cpp
+1642031448 source:c:\users\dell\documents\snake\game.cpp
 	"game.h"
+	<string>
 
-1641497067 c:\users\dell\documents\snake\game.h
+1642030895 c:\users\dell\documents\snake\game.h
 	"fruit.h"
 
 1641493950 c:\users\dell\documents\snake\segment.h
@@ -425,10 +426,10 @@
 	<iostream>
 	<vector>
 
-1641498086 source:c:\users\dell\documents\snake\fruit.cpp
+1642031654 source:c:\users\dell\documents\snake\fruit.cpp
 	"fruit.h"
 	<random>
 
-1641497381 c:\users\dell\documents\snake\fruit.h
+1642031654 c:\users\dell\documents\snake\fruit.h
 	"segment.h"
 

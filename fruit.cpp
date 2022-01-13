@@ -37,13 +37,3 @@ void GoodFruit::drawFruit(sf::RenderWindow &w)
 {
     w.draw(fruitRect);
 }
-
-/*GoodFruit::GoodFruit()
-{
-    fruitRect->setSize(sf::Vector2f(5,5));
-    fruitRect->setFillColor(sf::Color(122,122,61,255));
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distr(100, 600);
-    fruitRect->setPosition(distr(gen),distr(gen));
-}*/

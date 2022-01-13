@@ -7,6 +7,7 @@ class Game
      std::vector <Segment*> snake;
      Fruit *newFruit=nullptr;
      int points;
+     bool inMenu;
 
 
  public:
@@ -14,6 +15,9 @@ class Game
     ~Game();
     void drawSnake();
     void updateSnake();
+    void showScore();
+    void restart();
+    void menu(int &currentOption);
     bool gameOver();
     void gameOverScreen();
     void start();
